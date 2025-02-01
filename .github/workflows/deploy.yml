@@ -16,9 +16,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-artifact@v4  # Gunakan v4, bukan v3!
         with:
-          path: public/  # Pastikan path ini benar dan index.html ada di dalamnya
+          name: pages-artifact
+          path: public  # Pastikan folder ini berisi index.html
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
