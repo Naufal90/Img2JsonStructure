@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2  # Pastikan pakai ini, bukan upload-artifact
+        uses: actions/upload-pages-artifact@v3  # Pastikan pakai ini, bukan upload-artifact
         with:
           path: public  # Sesuaikan path dengan folder yang berisi index.html
 
