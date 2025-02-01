@@ -12,18 +12,13 @@ jobs:
       pages: write
       id-token: write
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Debug folder content
-        run: ls -R public/
-
-      - name: Upload files to GitHub Pages
-        uses: actions/upload-artifact@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
         with:
-          name: frontend
-          path: public/
+          path: public/  # Pastikan path ini benar dan index.html ada di dalamnya
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
-        with:
-          artifact_name: 'frontend'
