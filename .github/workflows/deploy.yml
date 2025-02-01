@@ -19,8 +19,21 @@ jobs:
         with:
           node-version: 18
 
+      - name: Install dependencies
+        run: |
+          npm install  # Pastikan proyekmu memiliki package.json dan dependencies yang benar
+
+      - name: Build the project
+        run: |
+          npm run build  # Ganti dengan perintah build sesuai dengan proyekmu
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend
+          path: ./public  # Pastikan folder build hasil proyekmu ada di sini
+
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
         with:
-          artifact_name: 'frontend'
-          path: './public'  # Path ke folder fronten
+          artifact_name: 'frontend'  # Nama artifact yang diupload
