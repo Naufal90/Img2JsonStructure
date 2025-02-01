@@ -14,24 +14,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-      - name: Install dependencies
-        run: |
-          npm install  # Pastikan proyekmu memiliki package.json dan dependencies yang benar
-
-      - name: Build the project
-        run: |
-          npm run build  # Ganti dengan perintah build sesuai dengan proyekmu
-
-      - name: Upload build artifact
+      - name: Upload files to GitHub Pages
         uses: actions/upload-artifact@v4
         with:
           name: frontend
-          path: ./public  # Pastikan folder build hasil proyekmu ada di sini
+          path: ./public  # Pastikan folder public berisi file statis (index.html, css, js)
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
