@@ -23,4 +23,4 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           artifact_name: 'frontend'
-          path: './public'  # Path ke folder frontend
+          path: './public'  # Path ke folder fronten
