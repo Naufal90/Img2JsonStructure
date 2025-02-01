@@ -14,13 +14,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Debug folder content
+        run: ls -R ./public
+
       - name: Upload files to GitHub Pages
         uses: actions/upload-artifact@v4
         with:
           name: frontend
-          path: ./public  # Pastikan folder public berisi file statis (index.html, css, js)
+          path: ./public
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
         with:
-          artifact_name: 'frontend'  # Nama artifact yang diupload
+          artifact_name: 'frontend'
