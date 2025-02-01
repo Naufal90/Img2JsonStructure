@@ -1,0 +1,30 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  flex-direction: column;
+}
+
+.progress-container {
+  width: 300px;
+  height: 20px;
+  background: #f3f3f3;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 100%;
+  background: #4CAF50;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 1.2em;
+}
