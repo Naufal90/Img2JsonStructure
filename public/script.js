@@ -119,3 +119,19 @@ function colorDifference(color1, color2) {
 
   return Math.sqrt((r1 - r2) ** 2 + (g1 - g2) ** 2 + (b1 - b2) ** 2);
     }
+
+document.getElementById('image').addEventListener('change', function (e) {
+  const fileLabel = document.getElementById('fileLabel');
+  const fileNameDisplay = document.getElementById('fileNameDisplay');
+  const file = e.target.files[0];
+
+  console.log('File yang dipilih:', file); // Debugging: Cek file yang dipilih
+
+  if (file) {
+    fileLabel.textContent = 'Ganti Gambar';
+    fileNameDisplay.textContent = `File terpilih: ${file.name}`;
+  } else {
+    fileLabel.textContent = 'Pilih Gambar';
+    fileNameDisplay.textContent = '';
+  }
+});
