@@ -17,20 +17,25 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Convert Image to Minecraft Structure</h1>
-    
-    <form id="uploadForm">
-      <input type="file" id="image" accept="image/*" required>
-      <button type="submit">Generate Structure</button>
-    </form>
+  <h1>Convert Image to Minecraft Structure</h1>
+  
+  <form id="uploadForm">
+    <label for="image" class="custom-file-upload">
+      Pilih Gambar
+    </label>
+    <input type="file" id="image" accept="image/*" required>
+    <button type="submit">Generate Structure</button>
+  </form>
 
-    <div class="progress-container">
-      <div class="progress-bar" id="progressBar"></div>
-    </div>
-
-    <div id="result"></div>
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
   </div>
+
+  <div id="result"></div>
+
+  <footer>
+    Dibuat dengan ❤️ oleh <a href="https://github.com/Naufal90" target="_blank" style="color: #4CAF50; text-decoration: none;">Naufal90</a>
+  </footer>
 
   <script src="script.js"></script>
 </body>
