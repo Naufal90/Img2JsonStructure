@@ -69,7 +69,7 @@ button:active {
 
 /* Input File */
 input[type="file"] {
-  display: none;
+  display: unset;
 }
 
 .custom-file-upload {
