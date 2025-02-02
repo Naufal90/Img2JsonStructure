@@ -44,12 +44,14 @@ document.getElementById('uploadForm').addEventListener('submit', async (e) => {
           const hexColor = `#${((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1)}`;
 
           // Dapatkan jenis blok berdasarkan warna
-          const blockType = getClosestBlock(hexColor);
+          const blockType = getClosestBlock(hexColor) || 'stone'; // Default ke 'stone' jika tidak ada warna cocok
           blocks.push({ x, y: -y, z: 0, type: blockType });
         }
 
-        // Update progress bar
-        progressBar.style.width = `${((y + 1) / canvas.height) * 100}%`;
+        // Update progress bar setiap 10 baris agar lebih efisien
+        if (y % 10 === 0) {
+          progressBar.style.width = `${((y + 1) / canvas.height) * 100}%`;
+        }
       }
 
       // Hasilkan file JSON
@@ -101,7 +103,7 @@ function getClosestBlock(hexColor) {
     }
   });
 
-  return COLOR_TO_BLOCK[closest];
+  return COLOR_TO_BLOCK[closest] || 'stone'; // Pastikan selalu mengembalikan blok valid
 }
 
 // Fungsi untuk menghitung perbedaan warna
@@ -118,7 +120,7 @@ function colorDifference(color1, color2) {
   const b2 = c2 & 0xff;
 
   return Math.sqrt((r1 - r2) ** 2 + (g1 - g2) ** 2 + (b1 - b2) ** 2);
-    }
+}
 
 document.getElementById('image').addEventListener('change', function (e) {
   const fileLabel = document.getElementById('fileLabel');
