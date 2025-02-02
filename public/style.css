@@ -7,7 +7,7 @@ body {
   height: 100vh;
   margin: 0;
   flex-direction: column;
-  background-image: url('assets/background.jpg');
+  background-image: url('https://raw.githubusercontent.com/Naufal90/My-web/abe1e73a8e328e1269e6fa0a21563c009d0dac5f/background.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
