@@ -1,108 +1,147 @@
-/* Global styles */
+/* Background Image */
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  background-image: url('https://example.com/your-background-image.jpg'); /* Ganti dengan URL gambar latar belakang Anda */
-  background-size: cover;
-  background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: fadeIn 2s ease-in-out; /* Animasi fadeIn untuk seluruh body */
+  height: 100vh;
+  margin: 0;
+  flex-direction: column;
+  background-image: url('assets/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-/* Container styles */
-.container {
-  background-color: rgba(0, 0, 0, 0.7); /* Transparan hitam untuk kontras */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+/* Form */
+form {
+  background: rgba(255, 255, 255, 0.1);
   padding: 20px;
   border-radius: 10px;
-  text-align: center;
-  width: 90%;
-  max-width: 500px;
-  animation: slideIn 1.5s ease-out; /* Animasi slideIn untuk kontainer */
+  backdrop-filter: blur(10px);
+  animation: fadeIn 1s ease-in-out;
 }
 
-/* Header styles */
-h1 {
-  color: #fff;
-  font-size: 2em;
-  margin-bottom: 20px;
-  animation: bounceIn 1s ease; /* Animasi bounceIn untuk header */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Form styles */
-form {
-  margin-bottom: 20px;
-  opacity: 0;
-  animation: fadeIn 2s ease-in-out forwards 1s; /* Form akan muncul dengan efek fadeIn setelah 1 detik */
-}
-
-input[type="file"] {
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-  width: 80%;
-  margin-right: 10px;
-}
-
+/* Tombol */
 button {
-  padding: 10px 15px;
-  background-color: #28a745;
-  color: #fff;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 1em;
-  transition: background-color 0.3s ease;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
-  background-color: #218838;
+  background-color: #45a049;
+  transform: scale(1.05);
 }
 
-/* Progress bar styles */
-.progress-container {
-  width: 100%;
-  background-color: #ddd;
+button:active {
+  transform: scale(0.95);
+}
+
+/* Input File */
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  border: 2px solid #4CAF50;
+  padding: 10px 20px;
   border-radius: 5px;
-  margin-top: 20px;
+  background-color: rgba(76, 175, 80, 0.1);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.custom-file-upload:hover {
+  background-color: rgba(76, 175, 80, 0.3);
+  border-color: #45a049;
+}
+
+/* Progress Bar */
+.progress-container {
+  width: 300px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  margin: 20px 0;
+  overflow: hidden;
 }
 
 .progress-bar {
-  height: 20px;
-  width: 0;
-  background-color: #28a745;
-  border-radius: 5px;
-  animation: progressAnimation 5s infinite; /* Progress bar animasi */
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #4CAF50, #45a049);
+  border-radius: 10px;
+  transition: width 0.3s ease;
+  position: relative;
 }
 
-/* Result styles */
-#result {
-  margin-top: 20px;
-  color: #fff;
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  animation: shimmer 1.5s infinite;
 }
 
-/* Keyframes Animations */
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Footer */
+footer {
+  position: absolute;
+  bottom: 10px;
+  font-size: 0.9em;
+  color: rgba(255, 255, 255, 0.8);
+  animation: slideIn 1s ease-in-out;
 }
 
 @keyframes slideIn {
-  0% { transform: translateY(-50px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes bounceIn {
-  0% { transform: scale(0); opacity: 0; }
-  50% { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(1); }
-}
-
-@keyframes progressAnimation {
-  0% { width: 0; }
-  50% { width: 50%; }
-  100% { width: 100%; }
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
